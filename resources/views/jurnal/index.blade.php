@@ -14,7 +14,11 @@
     </div>
 
     <!-- Filter -->
-    <div class="row g-2 align-items-end mb-2">
+    <div class="row g-2 align-items-end mb-2 alas p-1">
+        <div class="col-md-7">
+            <label class="form-label">Pencarian</label>
+            <input id="searchInput" type="text" class="form-control" placeholder="Cari nama, singkatan, atau ISSN...">
+        </div>
         <div class="col-md-2">
             <label class="form-label">Bidang</label>
             <select id="bidangFilter" class="form-select">
@@ -39,10 +43,10 @@
         </div>
 
         <!-- Checkbox Sinta -->
-        <div class="col-md-4">
+        <div class="col-md-7">
             <label class="form-label d-block">Sinta</label>
             <div id="sintaCheckboxes" class="d-flex flex-wrap gap-2">
-                @foreach (['sinta 1', 'sinta 2', 'sinta 3', 'sinta 4', 'sinta 5', 'sinta 6', 'Tidak Terakreditasi'] as $sinta)
+                @foreach (['Non_Sinta', 'Sinta 1', 'Sinta 2', 'Sinta 3', 'Sinta 4', 'Sinta 5', 'Sinta 6'] as $sinta)
                     <div class="form-check form-check-inline">
                         <input class="form-check-input sintaCheck" type="checkbox" value="{{ strtolower($sinta) }}"
                             id="sinta_{{ str_replace(' ', '_', $sinta) }}">
@@ -52,26 +56,22 @@
                 @endforeach
             </div>
         </div>
-
+        <div class="col-md-1"></div>
         <!-- Checkbox Scopus -->
-        <div class="col-md-3">
+        <div class="col-md-4">
             <label class="form-label d-block">Scopus</label>
             <div id="scopusCheckboxes" class="d-flex flex-wrap gap-2">
-                @foreach (['Q0', 'Q1', 'Q2', 'Q3', 'Q4'] as $q)
+                @foreach (['Non_Scopus', 'Q1', 'Q2', 'Q3', 'Q4'] as $q)
                     <div class="form-check form-check-inline">
                         <input class="form-check-input scopusCheck" type="checkbox" value="{{ strtolower($q) }}"
                             id="scopus_{{ $q }}">
-                        <label class="form-check-label small"
-                            for="scopus_{{ $q }}">{{ strtoupper($q) }}</label>
+                        <label class="form-check-label small" for="scopus_{{ $q }}">{{ $q }}</label>
                     </div>
                 @endforeach
             </div>
         </div>
 
-        <div class="col-md-12">
-            <label class="form-label">Pencarian</label>
-            <input id="searchInput" type="text" class="form-control" placeholder="Cari nama, singkatan, atau ISSN...">
-        </div>
+
     </div>
 
     <!-- Tabel Jurnal -->
@@ -86,7 +86,7 @@
                     <th>Singkatan</th>
                     <th>Bidang</th>
                     <th>Bidang Ilmu</th>
-                    <th>Akreditasi SINTA</th>
+                    <th>SINTA</th>
                     <th>Masa Aktif SINTA</th>
                     <th>Scopus</th>
                     <th>Aksi</th>

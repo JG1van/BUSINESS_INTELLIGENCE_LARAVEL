@@ -21,7 +21,6 @@ class Jurnal extends Model
         'issn',
         'e_issn',
         'bidang',
-        'industri',
         'akreditasi_sinta',
         'masa_aktif_sinta',
         'scopus_index',

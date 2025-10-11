@@ -48,7 +48,7 @@
                     <th>Singkatan</th>
                     <th>Bidang</th>
                     <th>Bidang Ilmu</th>
-                    <th>Akreditasi SINTA</th>
+                    <th>SINTA</th>
                     <th>Masa Aktif SINTA</th>
                     <th>Scopus</th>
                     <th>Link</th>
@@ -167,11 +167,11 @@
                             <div class="col-md-6">
                                 <label class="form-label">Akreditasi Sinta</label>
                                 <select name="akreditasi_sinta" class="form-select">
-                                    <option value="">-- Pilih --</option>
+                                    <option value="Non_Sinta">-- Pilih --</option>
                                     @for ($i = 1; $i <= 6; $i++)
                                         <option value="Sinta {{ $i }}">Sinta {{ $i }}</option>
                                     @endfor
-                                    <option value="Tidak Terakreditasi">Tidak Terakreditasi</option>
+                                    <option value="Non_Sinta">Non_Sinta</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -182,16 +182,17 @@
                             <div class="col-md-6">
                                 <label class="form-label">Scopus Index</label>
                                 <select name="scopus_index" class="form-select">
-                                    <option value="">-</option>
-                                    @foreach (['Q0', 'Q1', 'Q2', 'Q3', 'Q4'] as $q)
+                                    <option value="Non_Scopus">-- Pilih --</option>
+                                    @foreach (['Q1', 'Q2', 'Q3', 'Q4'] as $q)
                                         <option value="{{ $q }}">{{ $q }}</option>
                                     @endforeach
+                                    <option value="Non_Scopus">Non_Scopus</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Masa Aktif Scopus</label>
-                                <input type="number" name="masa_aktif_scopus" class="form-control" min="2000"
-                                    max="2100">
+                                <input type="text" name="masa_aktif_scopus" class="form-control"
+                                    placeholder="2020-2025">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Penerbit</label>
@@ -277,40 +278,32 @@
                                 <div class="col-md-6">
                                     <label class="form-label">Akreditasi Sinta</label>
                                     <select name="akreditasi_sinta" class="form-select">
-                                        <option value="">-- Pilih --</option>
+                                        <option value="Non_Sinta">-- Pilih --</option>
                                         @for ($i = 1; $i <= 6; $i++)
-                                            <option value="Sinta {{ $i }}"
-                                                {{ $jurnal->akreditasi_sinta == 'Sinta ' . $i ? 'selected' : '' }}>
-                                                Sinta {{ $i }}
-                                            </option>
+                                            <option value="Sinta {{ $i }}">Sinta {{ $i }}</option>
                                         @endfor
-                                        <option value="Tidak Terakreditasi"
-                                            {{ $jurnal->akreditasi_sinta == 'Tidak Terakreditasi' ? 'selected' : '' }}>
-                                            Tidak Terakreditasi
-                                        </option>
+                                        <option value="Non_Sinta">Non_Sinta</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Masa Aktif Sinta</label>
                                     <input type="text" name="masa_aktif_sinta" class="form-control"
-                                        value="{{ $jurnal->masa_aktif_sinta }}" placeholder="2020-2025">
+                                        value="{{ $jurnal->masa_aktif_sinta }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Scopus Index</label>
                                     <select name="scopus_index" class="form-select">
-                                        <option value="">-</option>
-                                        @foreach (['Q0', 'Q1', 'Q2', 'Q3', 'Q4'] as $q)
-                                            <option value="{{ $q }}"
-                                                {{ $jurnal->scopus_index == $q ? 'selected' : '' }}>
-                                                {{ $q }}
-                                            </option>
+                                        <option value="Non_Scopus">-- Pilih --</option>
+                                        @foreach (['Q1', 'Q2', 'Q3', 'Q4'] as $q)
+                                            <option value="{{ $q }}">{{ $q }}</option>
                                         @endforeach
+                                        <option value="Non_Scopus">Non_Scopus</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Masa Aktif Scopus</label>
-                                    <input type="number" name="masa_aktif_scopus" class="form-control" min="2000"
-                                        max="2100" value="{{ $jurnal->masa_aktif_scopus }}">
+                                    <input type="text" name="masa_aktif_scopus" class="form-control"
+                                        value="{{ $jurnal->masa_aktif_scopus }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Penerbit</label>

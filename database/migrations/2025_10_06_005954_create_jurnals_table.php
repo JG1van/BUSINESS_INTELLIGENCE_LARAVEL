@@ -15,7 +15,6 @@ return new class extends Migration {
 
             // Relasi
             $table->unsignedBigInteger('id_user');          // Relasi ke users
-            $table->unsignedBigInteger('id_bidang_ilmu');   // Relasi ke bidang_ilmu
 
             // Data utama
             $table->string('nama_jurnal');                  // Nama Jurnal
@@ -28,7 +27,7 @@ return new class extends Migration {
 
             // Bidang & Industri
             $table->enum('bidang', ['Penelitian', 'Pengabdian'])->nullable();
-            $table->string('industri')->nullable();         // Industri terkait (jika ada)
+            $table->unsignedBigInteger('id_bidang_ilmu');   // Relasi ke bidang_ilmu
 
             // Akreditasi Sinta
             $table->string('akreditasi_sinta')->nullable(); // Sinta 1–6 / Non-Sinta
@@ -36,7 +35,7 @@ return new class extends Migration {
 
             // Scopus
             $table->string('scopus_index')->nullable();     // Q1–Q4 atau kosong
-            $table->string('masa_aktif_scopus')->nullable();// Contoh: 2025
+            $table->string('masa_aktif_scopus')->nullable();// Contoh: 2020–2024
 
             // Penerbit & lokasi
             $table->string('penerbit')->nullable();

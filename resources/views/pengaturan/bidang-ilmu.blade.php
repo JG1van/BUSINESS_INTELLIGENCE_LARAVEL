@@ -87,6 +87,14 @@
                     </tr>
                 @endforelse
             </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4"></th>
+                </tr>
+                <tr>
+                    <th colspan="4"></th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 
