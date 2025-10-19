@@ -108,7 +108,7 @@ class ImportJurnalController extends Controller
                         'scopus_index' => $row['K'],
                         'masa_aktif_scopus' => $row['L'],
                         'penerbit' => $row['M'],
-                        'lokasi_terbit' => $row['N'],
+                        'kota_terbit' => $row['N'],
                     ]);
 
                     $totalImported++;
